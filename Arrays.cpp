@@ -1,5 +1,8 @@
 
-/*   Addresofindex = Base address + SizeofDataType *(index -lower bond)  */
+/*   Addresofindex = Base address + SizeofDataType *(index -lower bond) 
+    a[i][i] = BA + [i*n+j]*size
+    a[i][j] = BA + [j*m+i]*size
+ */
 
 #include <iostream>
 #include <vector>
