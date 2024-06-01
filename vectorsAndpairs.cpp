@@ -35,30 +35,46 @@ int main()
     // }
     // cout << sum;
 
-    vector<int> v[3];
+    /**   Array Of Vector   **/
+    // vector<int> v[3];
 
-    for (int i = 0; i < 3; i++)
-    {
-        int n;
-        cout << "Enter the size of Vector " << i + 1 << ": " << endl;
-        cin >> n;
-        for (int j = 0; j < n; j++)
-        {
-            int a;
-            cin >> a;
-            v[i].push_back(a);
-        }
-    }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     int n;
+    //     cout << "Enter the size of Vector " << i + 1 << ": " << endl;
+    //     cin >> n;
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         int a;
+    //         cin >> a;
+    //         v[i].push_back(a);
+    //     }
+    // }
 
-    for (int i = 0; i < 3; i++)
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     // cout << "Number of elements inside the vector " << i + 1 << " is " << v[i].size() << endl;
+    //     for (int j = 0; j < v[i].size(); j++)
+    //     {
+    //         cout << v[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+
+    /**   Vector Of Vector   **/
+
+    vector<vector<int>> v;
+    v.push_back({12, 34});
+    v.push_back({1});
+    v.push_back({3, 2, 1, 12, 1, 2, 12, 3});
+
+    for (int i = 0; i < v.size(); i++)
     {
-        // cout << "Number of elements inside the vector " << i + 1 << " is " << v[i].size() << endl;
-        for (int j = 0; j < v[i].size(); j++)
+        for (auto it = v[i].begin(); it != v[i].end(); it++)
         {
-            cout << v[i][j] << " ";
+            cout << *it << " ";
         }
         cout << endl;
     }
-
         return 0;
 }
