@@ -7,6 +7,7 @@
 #include<stack>
 #include<list>
 #include<queue>
+#include<map>
 
 
 using namespace std;
@@ -76,8 +77,19 @@ int main()
     pq1.push(516);
     pq1.push(561);
 
-    cout<<pq1.top();
+    cout<<pq1.top()<<endl;
 
-    // set will everything 
+    // map
+    map<int, int> mp;
+
+    mp.insert({1, 2});
+    mp.insert({3, 4});
+    mp.insert({44, 9});
+    mp.emplace(2, 32);
+
+    for(auto it : mp){
+        cout << it.first << " " << it.second << endl;
+    }
+
     return 0;
 }
