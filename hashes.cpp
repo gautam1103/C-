@@ -8,19 +8,21 @@ int main()
     int n;
     cin>>n;
     vector<int> arr(n);
+    map<int, int> mpp; // exapmle of real hashing
     for (int i = 0; i < n; i++){
         cin >> arr[i];
-
+        mpp[arr[i]]++;
     }
 
     // int hash[13] = {0};// example of array hashing
-    map<int, int> mpp; // exapmle of real hashing
-
-    for (int i = 0; i < n; i++){
-        //hash[arr[i]] += 1; 
-        mpp[arr[i]]++; 
+    // for (int i = 0; i < n; i++){
+    //     //hash[arr[i]] += 1; 
+    // }
+    //iterator of the map
+    for(auto it : mpp){
+        cout << it.first<< "->" << it.second << endl;
     }
-        int q;
+    int q;
     cin >> q;
     while(q--)
     {
