@@ -1,8 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-// Selection Sort:- Select Minimum and Swap it.
-// Bubble sort :- Push the maximum to the last by adjusting swaps
+// Selection Sort:- Select Minimum and Swap it with the very first sorted index/element.
+// Bubble sort :- Push the maximum to the last by adjusting swaps.
+// Merge Sort :- Divide and Merge.
+// Quick Sort :- Pick a Pivot and place it in it's correct place; 
+//               lesser will go into left and greater will go into the right.
 int swap(vector<int> &arr, int idx1, int idx2){
     int temp = arr[idx1];
     arr[idx1] = arr[idx2];
@@ -33,6 +36,7 @@ void bubble_sort(vector<int> &arr, int n){
         cout << "run"<<endl;
     }
 }
+
 void merge(vector<int>&arr, int l, int mid, int h)
 {
     vector <int> temp;
@@ -70,6 +74,34 @@ void mergeSort(vector<int>&arr, int l, int h)
     mergeSort(arr, mid + 1, h);
     merge(arr, l, mid, h);
 }
+int partition(vector<int>&arr, int l, int h){
+    int pivot = arr[l];
+    int i = l;
+    int j = h;
+while(i<j)
+{
+    while (pivot >= arr[i] && i <= h - 1)
+    {
+        i++;
+    }
+    while (pivot < arr[j] && j >= l + 1)
+    {
+        j--;
+    }
+    if(j>i)
+        swap(arr[j], arr[i]);
+}
+swap(arr[l], arr[j]);
+return j;
+}
+void quick_sort(vector<int>&arr, int l, int h)
+{
+    if(l<h){
+        int pIndex = partition(arr, l, h);
+        quick_sort(arr, l, pIndex - 1);
+        quick_sort(arr, pIndex + 1, h);
+    }
+}
 int main()
 {
     int n;
@@ -79,7 +111,9 @@ int main()
         cin >> arr[i];
     //selection_sort(arr, n);
     //bubble_sort(arr, n);
-    mergeSort(arr, 0, n-1);
+    //mergeSort(arr, 0, n-1);
+
+    quick_sort(arr, 0, n - 1);
     for (int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
