@@ -6,10 +6,15 @@ using namespace std;
 // Merge Sort :- Divide and Merge.
 // Quick Sort :- Pick a Pivot and place it in it's correct place; 
 //               lesser will go into left and greater will go into the right.
-int swap(vector<int> &arr, int idx1, int idx2){
-    int temp = arr[idx1];
-    arr[idx1] = arr[idx2];
-    arr[idx2] = temp;
+// int swap(vector<int> &arr, int idx1, int idx2){
+//     int temp = arr[idx1];
+//     arr[idx1] = arr[idx2];
+//     arr[idx2] = temp;
+// }
+int Swap(int &a, int &b){
+    int temp = a;
+    a = b;
+    b = temp;
 }
 void selection_sort(vector<int> &arr, int n){
     for (int i = 0; i < n - 1; i++){
@@ -89,9 +94,9 @@ while(i<j)
         j--;
     }
     if(j>i)
-        swap(arr[j], arr[i]);
+        Swap(arr[j], arr[i]);
 }
-swap(arr[l], arr[j]);
+Swap(arr[l], arr[j]);
 return j;
 }
 void quick_sort(vector<int>&arr, int l, int h)
